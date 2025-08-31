@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Interfaces\Validators;
+namespace App\Base\Interfaces\Validators;
 
-use App\Support\Exceptions\ValidationException;
+use App\Base\Exceptions\ValidationException;
 
 interface ValidatorInterface
 {

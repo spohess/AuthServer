@@ -15,8 +15,8 @@ return new class extends Migration {
             $table->timestamps();
 
             $table->uuid('id')
-                ->unique()
-                ->comment('UUID');
+                ->primary()
+                ->comment('Unique identifier for each user');
 
             $table->string('email')
                 ->unique()

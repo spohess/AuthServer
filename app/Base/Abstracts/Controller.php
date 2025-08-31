@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Abstracts\Controllers;
+namespace App\Base\Abstracts;
 
 abstract class Controller
 {

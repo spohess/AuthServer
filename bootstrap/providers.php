@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Support\Providers\AppServiceProvider;
+use App\Base\Providers\AppServiceProvider;
 
 return [
     AppServiceProvider::class,

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Traits;
+namespace App\Base\Traits;
 
 use Illuminate\Support\Arr;
 
