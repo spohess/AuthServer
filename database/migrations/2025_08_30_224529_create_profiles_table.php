@@ -17,7 +17,7 @@ return new class extends Migration {
 
             $table->uuid('id')
                 ->primary()
-                ->comment('Unique identifier for each permission');
+                ->comment('Unique identifier for each profile');
 
             $table->enum('name', ProfileNameEnum::values())
                 ->unique()
