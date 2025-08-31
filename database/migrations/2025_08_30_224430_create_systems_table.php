@@ -15,8 +15,12 @@ return new class extends Migration {
             $table->timestamps();
 
             $table->uuid('id')
+                ->primary()
+                ->comment('Unique identifier for each system');
+
+            $table->string('name')
                 ->unique()
-                ->comment('Primary key as UUID');
+                ->comment('Name of the system');
 
             $table->string('username')
                 ->unique()

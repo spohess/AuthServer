@@ -21,6 +21,7 @@ class SystemFactory extends Factory
     {
         return [
             'id' => fake()->unique()->uuid(),
+            'name' => fake()->unique()->company(),
             'username' => fake()->unique()->userName(),
             'password' => static::$password ??= Hash::make('password'),
             'ip' => fake()->optional()->ipv4(),

@@ -16,10 +16,11 @@ return new class extends Migration {
             $table->timestamps();
 
             $table->uuid('id')
-                ->unique()
-                ->comment('Unique identifier for each profile');
+                ->primary()
+                ->comment('Unique identifier for each permission');
 
             $table->enum('name', ProfileNameEnum::values())
+                ->unique()
                 ->comment('Name of the profile');
 
             $table->text('description')

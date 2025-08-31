@@ -10,11 +10,15 @@ enum ProfileNameEnum: string
 {
     use EnumTools;
 
-    case VIEWER = 'viewer';
+    case CUSTOMER = 'customer';
 
-    case EDITOR = 'editor';
+    case ANALYST = 'analyst';
+
+    case SUPERVISOR = 'supervisor';
 
     case MANAGER = 'manager';
+
+    case DIRECTOR = 'director';
 
     case ADMINISTRATOR = 'administrator';
 }

@@ -9,10 +9,12 @@ use Illuminate\Database\Seeder;
 class ProfileSeeder extends Seeder
 {
     private array $descriptions = [
-        ProfileNameEnum::VIEWER->value => 'Can only view data, without making any changes',
-        ProfileNameEnum::EDITOR->value => 'Can create and update records, but cannot delete or manage users',
-        ProfileNameEnum::MANAGER->value => 'Can create, update, and delete records, and manage certain resources',
-        ProfileNameEnum::ADMINISTRATOR->value => 'Has full access to all features and settings without restrictions',
+        ProfileNameEnum::CUSTOMER->value => 'End user of the system, with access to features and services intended for clients or consumers.',
+        ProfileNameEnum::ANALYST->value => 'Responsible for analyzing data, processes, and requirements to support business decisions.',
+        ProfileNameEnum::SUPERVISOR->value => 'Oversees daily operations and team performance, ensuring tasks are completed efficiently.',
+        ProfileNameEnum::MANAGER->value => 'Manages teams and projects, sets goals, and coordinates resources to achieve organizational objectives.',
+        ProfileNameEnum::DIRECTOR->value => 'Leads multiple departments or divisions, defines strategic direction, and ensures alignment with company goals.',
+        ProfileNameEnum::ADMINISTRATOR->value => 'Has full administrative privileges, responsible for system configuration, user management, and overall platform maintenance.',
     ];
 
     public function __construct(
