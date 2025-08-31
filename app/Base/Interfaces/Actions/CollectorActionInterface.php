@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Interfaces\Actions;
+namespace App\Base\Interfaces\Actions;
 
 use Illuminate\Database\Eloquent\Collection;
 

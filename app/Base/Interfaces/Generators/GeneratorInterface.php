@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Interfaces\Generators;
+namespace App\Base\Interfaces\Generators;
 
 interface GeneratorInterface
 {

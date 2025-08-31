@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Interfaces\Services;
+namespace App\Base\Interfaces\Services;
 
 interface ExecutableInterface
 {
