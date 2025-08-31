@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Support\Auth\Database\Factories;
 
+use App\Base\Enums\ProfileNameEnum;
 use App\Support\Auth\Models\Profile;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,7 +18,9 @@ class ProfileFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id' => fake()->uuid(),
+            'name' => fake()->randomElement(ProfileNameEnum::values()),
+            'description' => fake()->optional()->sentence(),
         ];
     }
 }
