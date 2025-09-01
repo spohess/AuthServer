@@ -2,6 +2,7 @@
 
 namespace App\Support\Auth\Controllers;
 
+use App\Base\Abstracts\Controller;
 use App\Http\Requests\UserIndexRequest;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
@@ -14,7 +15,7 @@ use App\Support\Auth\Resources\UserResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 
-class UserController
+class UserController extends Controller
 {
     public function __construct(
         private UserCollectorAction $collector,
