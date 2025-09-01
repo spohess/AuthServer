@@ -2,19 +2,25 @@
 
 namespace App\Support\Auth\Controllers;
 
-use App\Http\Requests\UserCreatorRequest;
 use App\Http\Requests\UserIndexRequest;
+use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Support\Auth\Actions\Users\UserCollectorAction;
 use App\Support\Auth\Actions\Users\UserCreatorAction;
+use App\Support\Auth\Actions\Users\UserDeleterAction;
+use App\Support\Auth\Actions\Users\UserUpdaterAction;
+use App\Support\Auth\Models\User;
 use App\Support\Auth\Resources\UserResource;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response;
 
 class UserController
 {
     public function __construct(
         private UserCollectorAction $collector,
         private UserCreatorAction $creator,
+        private UserUpdaterAction $updater,
+        private UserDeleterAction $deleter,
     ) {}
 
     public function index(UserIndexRequest $request): AnonymousResourceCollection
@@ -24,30 +30,29 @@ class UserController
         );
     }
 
-    public function create(UserCreatorRequest $request)
+    public function store(UserStoreRequest $request): UserResource
     {
         return new UserResource(
             $this->creator->create($request->validated()),
         );
     }
 
-    public function store(Request $request)
+    public function show(User $user): UserResource
     {
-        //
+        return new UserResource($user);
     }
 
-    public function show(string $id)
+    public function update(UserUpdateRequest $request, User $user)
     {
-        //
+        $this->updater->update($user, $request->validated());
+
+        return new UserResource($user->fresh());
     }
 
-    public function update(Request $request, string $id)
+    public function destroy(User $user): Response
     {
-        //
-    }
+        $this->deleter->delete($user);
 
-    public function destroy(string $id)
-    {
-        //
+        return response()->noContent();
     }
 }
