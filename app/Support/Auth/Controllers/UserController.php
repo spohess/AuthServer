@@ -3,14 +3,14 @@
 namespace App\Support\Auth\Controllers;
 
 use App\Base\Abstracts\Controller;
-use App\Http\Requests\UserIndexRequest;
-use App\Http\Requests\UserStoreRequest;
-use App\Http\Requests\UserUpdateRequest;
 use App\Support\Auth\Actions\Users\UserCollectorAction;
 use App\Support\Auth\Actions\Users\UserCreatorAction;
 use App\Support\Auth\Actions\Users\UserDeleterAction;
 use App\Support\Auth\Actions\Users\UserUpdaterAction;
 use App\Support\Auth\Models\User;
+use App\Support\Auth\Requests\UserIndexRequest;
+use App\Support\Auth\Requests\UserStoreRequest;
+use App\Support\Auth\Requests\UserUpdateRequest;
 use App\Support\Auth\Resources\UserResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;

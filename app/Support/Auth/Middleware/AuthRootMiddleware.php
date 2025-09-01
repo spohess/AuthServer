@@ -10,8 +10,8 @@ class AuthRootMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->root) {
-            return response()->json(['message' => 'Unauthorized'], 401);
+        if (!auth()->user()->root) {
+            return response()->json(['message' => 'Unauthenticated.'], 401);
         }
 
         return $next($request);

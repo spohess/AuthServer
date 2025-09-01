@@ -1,0 +1,11 @@
+POST /api/auth/user HTTP/1.1
+Host: localhost
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|FlszXrBIMcaY8v3DvYNpPEWqCkUpexoO1eYROgz4f5b74df7
+
+{
+    "email": "sergio@authserver.local",
+    "password": "53nh@FAK3!!",
+    "password_confirmation": "53nh@FAK3!!"
+}
