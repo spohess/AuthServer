@@ -23,6 +23,7 @@ class UserFactory extends Factory
             'id' => fake()->unique()->uuid(),
             'email' => fake()->unique()->safeEmail(),
             'password' => static::$password ??= Hash::make('password'),
+            'root' => fake()->boolean(10),
             'blocked_at' => fake()->optional()->dateTime(),
         ];
     }

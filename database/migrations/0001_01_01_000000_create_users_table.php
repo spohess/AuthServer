@@ -25,6 +25,10 @@ return new class extends Migration {
             $table->string('password')
                 ->comment('Password hash');
 
+            $table->boolean('root')
+                ->default(false)
+                ->comment('Indicates if the user has root privileges');
+
             $table->dateTime('blocked_at')
                 ->nullable()
                 ->comment('Blocked at timestamp');

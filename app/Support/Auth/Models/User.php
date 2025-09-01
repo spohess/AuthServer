@@ -15,6 +15,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string $id
  * @property string $email
  * @property string $password
+ * @property bool $root
  * @property Carbon|null $blocked_at
  * @property Carbon $created_at
  * @property Carbon $updated_at
@@ -34,12 +35,14 @@ class User extends Authenticatable
         'id',
         'email',
         'password',
+        'root',
         'blocked_at',
     ];
 
     protected $casts = [
         'password' => 'hashed',
         'blocked_at' => 'datetime',
+        'root' => 'bool',
     ];
 
     protected $hidden = [

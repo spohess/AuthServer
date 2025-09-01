@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 use App\Base\Enums\ProfileNameEnum;
-use App\Support\Auth\Actions\ProfileCreatorAction;
+use App\Support\Auth\Actions\Profiles\ProfileCreatorAction;
 use Illuminate\Database\Seeder;
 
 class ProfileSeeder extends Seeder

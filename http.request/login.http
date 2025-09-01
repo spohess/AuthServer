@@ -1,0 +1,10 @@
+POST /api/login HTTP/1.1
+Host: localhost
+Accept: application/json
+Content-Type: application/json
+Content-Length: 70
+
+{
+    "email": "root@authserver.local",
+    "password": "RAv!pa7t9l81EmA@tuI$eMPo#"
+}
