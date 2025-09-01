@@ -1,0 +1,5 @@
+GET /api/auth/user/1241c3d8-24ce-4f48-88a8-a7f747e4826f HTTP/1.1
+Host: localhost
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|FlszXrBIMcaY8v3DvYNpPEWqCkUpexoO1eYROgz4f5b74df7
