@@ -5,15 +5,12 @@ declare(strict_types=1);
 namespace App\Support\Auth\Actions\Users;
 
 use App\Base\Interfaces\Actions\CollectorActionInterface;
-use App\Base\Traits\BlockedAtFilter;
 use App\Support\Auth\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
 class UserCollectorAction implements CollectorActionInterface
 {
-    use BlockedAtFilter;
-
     public function __construct(
         private User $model,
     ) {}
@@ -23,20 +20,25 @@ class UserCollectorAction implements CollectorActionInterface
         $query = $this->model->query();
 
         if ($filters) {
-            $query = $this->applyFilters($query, $filters);
+            $this->applyFilters($query, $filters);
         }
 
         return $query->get();
     }
 
-    private function applyFilters(Builder $query, array $filters): Builder
+    private function applyFilters(Builder &$query, array $filters)
     {
-        $this->applyBlockedAtFilter($query, $filters);
-
         foreach ($filters as $field => $value) {
+            if (is_bool($value)) {
+                $this->applyBoolFilter($query, $field, $value);
+                continue;
+            }
             $query->where($field, '=', $value);
         }
+    }
 
-        return $query;
+    private function applyBoolFilter(Builder &$query, string $field, bool $value): void
+    {
+        $query->whereNull($field, 'and', $value);
     }
 }

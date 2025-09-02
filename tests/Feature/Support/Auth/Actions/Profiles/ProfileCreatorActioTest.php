@@ -6,7 +6,6 @@ use App\Base\Enums\ProfileNameEnum;
 use App\Support\Auth\Actions\Profiles\ProfileCreatorAction;
 use App\Support\Auth\Models\Profile;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
 uses(RefreshDatabase::class);
 

@@ -11,7 +11,7 @@ class UserIndexRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'blocked_at' => ['nullable'],
+            'blocked_at' => ['nullable', 'bool'],
         ];
     }
 }

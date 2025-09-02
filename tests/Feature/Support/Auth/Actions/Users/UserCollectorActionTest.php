@@ -22,7 +22,7 @@ describe('Feature test for UserCollectorAction', function () {
             'blocked_at' => now(),
         ]);
 
-        $users = $this->collector->collect(['blocked_at' => null]);
+        $users = $this->collector->collect(['blocked_at' => false]);
 
         expect($users)->toBeInstanceOf(Collection::class)
             ->and($users)->toHaveCount(3);
