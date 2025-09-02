@@ -5,9 +5,6 @@ declare(strict_types=1);
 use App\Base\Enums\ProfileNameEnum;
 use App\Support\Auth\Actions\Profiles\ProfileCreatorAction;
 use App\Support\Auth\Models\Profile;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-
-uses(RefreshDatabase::class);
 
 beforeEach(function () {
     $this->creator = app()->make(ProfileCreatorAction::class);
