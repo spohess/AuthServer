@@ -18,6 +18,7 @@ class UserUpdaterAction implements UpdaterActionInterface
         if (array_key_exists('password', $args)) {
             $args['password'] = bcrypt($args['password']);
         }
+
         return $model->update($args);
     }
 }
