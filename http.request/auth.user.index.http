@@ -2,7 +2,7 @@ GET /api/auth/user HTTP/1.1
 Host: localhost
 Accept: application/json
 Content-Type: application/json
-Authorization: Bearer 1|FukZscXf4uNtf2IgSRYH5hgjhVXP1vsFVG5UVexE9cb41827
+Authorization: Bearer 1|AjSPzGkotm9bWyKW4My5GcAGBCqbCXuTfp6F8WQM0e42b276
 
 {
   "blocked_at": null
