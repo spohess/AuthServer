@@ -6,6 +6,7 @@ namespace App\Support\Auth\Controllers;
 
 use App\Base\Abstracts\Controller;
 use App\Support\Auth\Actions\Users\UserFinderAction;
+use App\Support\Auth\Exceptions\InvalidUserException;
 use App\Support\Auth\Generators\UserTokenGenerator;
 use App\Support\Auth\Models\User;
 use App\Support\Auth\Requests\LoginRequest;
@@ -29,10 +30,16 @@ class LoginController extends Controller
         $user = $this->finder->find([
             'email' => $request->input('email'),
         ]);
-        $this->validator->validate([
-            'user' => $user,
-            'password' => $request->input('password'),
-        ]);
+        try {
+            $this->validator->validate([
+                'user' => $user,
+                'password' => $request->input('password'),
+            ]);
+        } catch (InvalidUserException $e) {
+            return response()->json([
+                'message' => $e->getMessage(),
+            ], 422);
+        }
         Auth::login($user);
         $token = $this->generator->generate(['user' => $user]);
 

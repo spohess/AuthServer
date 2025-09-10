@@ -18,13 +18,13 @@ class UserPasswordValidator implements ValidatorInterface
          * @var User $user
          */
         $user = Arr::get($subject, 'user');
-        throw_if(!$user, new InvalidUserException());
+        throw_if(
+            !$user,
+            new InvalidUserException(),
+        );
 
         throw_if(
-            !Hash::check(
-                Arr::get($subject, 'password'),
-                $user->password,
-            ),
+            !Hash::check(Arr::get($subject, 'password'), $user->password),
             new InvalidUserException(),
         );
     }
