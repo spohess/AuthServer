@@ -46,7 +46,7 @@ describe('Feature test for LoginController', function () {
         )->assertJsonStructure(['message', 'token']);
     });
 
-    it('should pass incorrect info to controller and receive InvalidUserException', function () {
+    it('should pass incorrect info to controller and receive response for invalid user', function () {
         $email = fake()->safeEmail();
         User::factory()->create([
             'email' => $email,
@@ -67,7 +67,7 @@ describe('Feature test for LoginController', function () {
             ->and($content)->toHaveKeys(['message']);
     });
 
-    it('should pass correct info endpoint and receive response un', function () {
+    it('should pass correct info endpoint and receive response with 422 code', function () {
         $email = fake()->safeEmail();
         User::factory()->create([
             'email' => $email,
