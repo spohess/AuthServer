@@ -7,8 +7,10 @@ namespace App\Support\Auth\Controllers;
 use App\Base\Abstracts\Controller;
 use App\Support\Auth\Actions\Users\UserFinderAction;
 use App\Support\Auth\Generators\UserTokenGenerator;
+use App\Support\Auth\Models\User;
 use App\Support\Auth\Requests\LoginRequest;
 use App\Support\Auth\Validators\UserPasswordValidator;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -19,8 +21,11 @@ class LoginController extends Controller
         private UserTokenGenerator $generator,
     ) {}
 
-    public function __invoke(LoginRequest $request)
+    public function __invoke(LoginRequest $request): JsonResponse
     {
+        /**
+         * @var User $user
+         */
         $user = $this->finder->find([
             'email' => $request->input('email'),
         ]);

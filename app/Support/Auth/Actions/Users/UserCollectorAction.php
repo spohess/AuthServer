@@ -26,7 +26,7 @@ class UserCollectorAction implements CollectorActionInterface
         return $query->get();
     }
 
-    private function applyFilters(Builder &$query, array $filters)
+    private function applyFilters(Builder &$query, array $filters): void
     {
         foreach ($filters as $field => $value) {
             if (is_bool($value)) {

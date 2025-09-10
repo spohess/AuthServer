@@ -22,16 +22,13 @@ return new class extends Migration {
                 ->comment('Unique identifier for each permission');
 
             $table->foreignIdFor(System::class)
-                ->constrained()
-                ->comment('Foreign key referencing systems table');
+                ->constrained();
 
             $table->foreignIdFor(User::class)
-                ->constrained()
-                ->comment('Foreign key referencing users table');
+                ->constrained();
 
             $table->foreignIdFor(Profile::class)
-                ->constrained()
-                ->comment('Foreign key referencing profiles table');
+                ->constrained();
 
             $table->boolean('select')
                 ->default(true)

@@ -16,7 +16,6 @@ describe('Feature test for ProfileCreatorActio', function () {
             'name' => fake()->randomElement(ProfileNameEnum::values()),
             'description' => fake()->sentence(),
         ];
-
         $profile = $this->creator->create($data);
 
         expect($profile)->toBeInstanceOf(Profile::class);
