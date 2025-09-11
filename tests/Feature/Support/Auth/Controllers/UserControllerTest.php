@@ -69,6 +69,34 @@ describe('Feature test for UserController', function () {
 
             expect($resource)->toHaveCount(0);
         });
+
+        it('should get a collection resource with all users by api', function () {
+            $admin = User::factory()->create([
+                'blocked_at' => null,
+                'root' => true,
+            ]);
+            User::factory(5)->create();
+
+            $response = $this->actingAs($admin)->getJson(route('auth.user.index'))
+                ->assertStatus(200)
+                ->json();
+
+            expect($response['data'])->toHaveCount(6);
+        });
+
+        it('should get error Unauthenticated by not root user', function () {
+            $admin = User::factory()->create([
+                'blocked_at' => null,
+                'root' => false,
+            ]);
+            User::factory(5)->create();
+
+            $response = $this->actingAs($admin)->getJson(route('auth.user.index'))
+                ->assertStatus(401)
+                ->json();
+
+            expect($response['message'])->toBe('Unauthenticated.');
+        });
     });
 
     describe('store', function () {
