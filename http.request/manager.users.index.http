@@ -1,5 +1,9 @@
-GET /api/auth/user/9b8e5155-94b4-4243-b32c-a0c89e9fca7a HTTP/1.1
+GET /api/manager/users HTTP/1.1
 Host: localhost
 Accept: application/json
 Content-Type: application/json
 Authorization: Bearer 1|AjSPzGkotm9bWyKW4My5GcAGBCqbCXuTfp6F8WQM0e42b276
+
+{
+  "blocked_at": null
+}
