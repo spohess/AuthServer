@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Support\Auth\Controllers;
 
 use App\Base\Abstracts\Controller;
-use App\Http\Requests\UserIndexRequest;
-use App\Http\Requests\UserStoreRequest;
-use App\Http\Requests\UserUpdateRequest;
 use App\Support\Auth\Actions\Users\UserCollectorAction;
 use App\Support\Auth\Actions\Users\UserCreatorAction;
 use App\Support\Auth\Actions\Users\UserDeleterAction;
 use App\Support\Auth\Actions\Users\UserUpdaterAction;
 use App\Support\Auth\Models\User;
+use App\Support\Auth\Requests\User\UserIndexRequest;
+use App\Support\Auth\Requests\User\UserStoreRequest;
+use App\Support\Auth\Requests\User\UserUpdateRequest;
 use App\Support\Auth\Resources\UserResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
@@ -43,7 +45,7 @@ class UserController extends Controller
         return new UserResource($user);
     }
 
-    public function update(UserUpdateRequest $request, User $user)
+    public function update(UserUpdateRequest $request, User $user): UserResource
     {
         $this->updater->update($user, $request->validated());
 

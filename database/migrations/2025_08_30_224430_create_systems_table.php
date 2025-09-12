@@ -12,17 +12,24 @@ return new class extends Migration {
         Schema::create('systems', function (Blueprint $table) {
             $table->comment('Table to store system information');
 
-            $table->timestamps();
-
             $table->uuid('id')
                 ->primary()
                 ->comment('Unique identifier for each system');
 
-            $table->string('name')
+            $table->timestamps();
+
+            $table->dateTime('blocked_at')
+                ->nullable()
+                ->comment('Blocked at timestamp');
+
+            $table->string('name', 32)
                 ->unique()
                 ->comment('Name of the system');
 
-            $table->string('username')
+            $table->string('url')
+                ->comment('URL of the system');
+
+            $table->string('username', 32)
                 ->unique()
                 ->comment('Username for the system');
 
@@ -32,10 +39,6 @@ return new class extends Migration {
             $table->string('ip', 16)
                 ->nullable()
                 ->comment('IP address of the system');
-
-            $table->dateTime('blocked_at')
-                ->nullable()
-                ->comment('Blocked at timestamp');
         });
     }
 

@@ -1,0 +1,11 @@
+PUT /api/manager/systems/1493a83b-76a3-440a-8a1f-faa3c9115d35 HTTP/1.1
+Host: localhost
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 2|VBj3poeMkZnKO1VOJfQThPUfpVKFwKYDBwfRUzjt6143e6ab
+
+{
+  "name": "ERP System Updated",
+  "password": "NEW_53nh@FAK3!!",
+  "password_confirmation": "NEW_53nh@FAK3!!"
+}

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Support\Auth\Middleware;
 
 use Closure;
@@ -10,8 +12,8 @@ class AuthRootMiddleware
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->root) {
-            return response()->json(['message' => 'Unauthorized'], 401);
+        if (!auth()->user()->root) {
+            return response()->json(['message' => 'Unauthenticated.'], 401);
         }
 
         return $next($request);

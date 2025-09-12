@@ -12,11 +12,4 @@ trait EnumTools
     {
         return Arr::pluck(self::cases(), 'value');
     }
-
-    public static function except(array $except): array
-    {
-        $processedArray = Arr::map($except, fn($item) => $item instanceof self ? $item->value : $item);
-
-        return array_diff(self::values(), $processedArray);
-    }
 }

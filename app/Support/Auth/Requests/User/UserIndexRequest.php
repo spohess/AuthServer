@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Http\Requests;
+declare(strict_types=1);
+
+namespace App\Support\Auth\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -9,7 +11,8 @@ class UserIndexRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'blocked_at' => ['nullable'],
+            'email' => ['nullable', 'email'],
+            'blocked_at' => ['nullable', 'bool'],
         ];
     }
 }

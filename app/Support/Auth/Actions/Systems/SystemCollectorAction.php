@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Auth\Actions\Users;
+namespace App\Support\Auth\Actions\Systems;
 
 use App\Base\Interfaces\Actions\CollectorActionInterface;
-use App\Support\Auth\Models\User;
+use App\Support\Auth\Models\System;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
-class UserCollectorAction implements CollectorActionInterface
+class SystemCollectorAction implements CollectorActionInterface
 {
     public function __construct(
-        private User $model,
+        private System $model,
     ) {}
 
     public function collect(?array $filters = null): ?Collection
