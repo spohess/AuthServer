@@ -5,56 +5,56 @@ declare(strict_types=1);
 namespace App\Support\Auth\Controllers;
 
 use App\Base\Abstracts\Controller;
-use App\Support\Auth\Actions\Users\UserCollectorAction;
-use App\Support\Auth\Actions\Users\UserCreatorAction;
-use App\Support\Auth\Actions\Users\UserDeleterAction;
-use App\Support\Auth\Actions\Users\UserUpdaterAction;
-use App\Support\Auth\Models\User;
-use App\Support\Auth\Requests\UserIndexRequest;
-use App\Support\Auth\Requests\UserStoreRequest;
-use App\Support\Auth\Requests\UserUpdateRequest;
-use App\Support\Auth\Resources\UserResource;
+use App\Support\Auth\Actions\Systems\SystemCollectorAction;
+use App\Support\Auth\Actions\Systems\SystemCreatorAction;
+use App\Support\Auth\Actions\Systems\SystemDeleterAction;
+use App\Support\Auth\Actions\Systems\SystemUpdaterAction;
+use App\Support\Auth\Models\System;
+use App\Support\Auth\Requests\System\SystemIndexRequest;
+use App\Support\Auth\Requests\System\SystemStoreRequest;
+use App\Support\Auth\Requests\System\SystemUpdateRequest;
+use App\Support\Auth\Resources\SystemResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 
 class SystemController extends Controller
 {
     public function __construct(
-        private UserCollectorAction $collector,
-        private UserCreatorAction $creator,
-        private UserUpdaterAction $updater,
-        private UserDeleterAction $deleter,
+        private SystemCollectorAction $collector,
+        private SystemCreatorAction $creator,
+        private SystemUpdaterAction $updater,
+        private SystemDeleterAction $deleter,
     ) {}
 
-    public function index(UserIndexRequest $request): AnonymousResourceCollection
+    public function index(SystemIndexRequest $request): AnonymousResourceCollection
     {
-        return UserResource::collection(
+        return SystemResource::collection(
             $this->collector->collect($request->validated()),
         );
     }
 
-    public function store(UserStoreRequest $request): UserResource
+    public function store(SystemStoreRequest $request): SystemResource
     {
-        return new UserResource(
+        return new SystemResource(
             $this->creator->create($request->validated()),
         );
     }
 
-    public function show(User $user): UserResource
+    public function show(System $system): SystemResource
     {
-        return new UserResource($user);
+        return new SystemResource($system);
     }
 
-    public function update(UserUpdateRequest $request, User $user): UserResource
+    public function update(SystemUpdateRequest $request, System $system): SystemResource
     {
-        $this->updater->update($user, $request->validated());
+        $this->updater->update($system, $request->validated());
 
-        return new UserResource($user->fresh());
+        return new SystemResource($system->fresh());
     }
 
-    public function destroy(User $user): Response
+    public function destroy(System $system): Response
     {
-        $this->deleter->delete($user);
+        $this->deleter->delete($system);
 
         return response()->noContent();
     }

@@ -13,6 +13,7 @@ use Laravel\Sanctum\HasApiTokens;
 /**
  * @property string $id
  * @property string $name
+ * @property string $url
  * @property string $username
  * @property string $password
  * @property string|null $ip
@@ -33,6 +34,7 @@ class System extends Authenticatable
     protected $fillable = [
         'id',
         'name',
+        'url',
         'username',
         'password',
         'ip',

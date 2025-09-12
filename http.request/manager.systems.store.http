@@ -1,0 +1,14 @@
+POST /api/manager/systems HTTP/1.1
+Host: localhost
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 2|VBj3poeMkZnKO1VOJfQThPUfpVKFwKYDBwfRUzjt6143e6ab
+
+{
+  "name": "ERP System",
+  "url": "https://new-system.example.com",
+  "username": "erp.auth",
+  "password": "53nh@FAK3!!_Test",
+  "password_confirmation": "53nh@FAK3!!_Test",
+  "ip": null
+}

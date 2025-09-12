@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 use App\Support\Auth\Controllers\UserController;
 use App\Support\Auth\Models\User;
-use App\Support\Auth\Requests\UserIndexRequest;
-use App\Support\Auth\Requests\UserStoreRequest;
-use App\Support\Auth\Requests\UserUpdateRequest;
+use App\Support\Auth\Requests\User\UserIndexRequest;
+use App\Support\Auth\Requests\User\UserStoreRequest;
+use App\Support\Auth\Requests\User\UserUpdateRequest;
 use App\Support\Auth\Resources\UserResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -77,7 +77,7 @@ describe('Feature test for UserController', function () {
             ]);
             User::factory(5)->create();
 
-            $response = $this->actingAs($admin)->getJson(route('auth.user.index'))
+            $response = $this->actingAs($admin)->getJson(route('manager.users.index'))
                 ->assertStatus(200)
                 ->json();
 
@@ -91,7 +91,7 @@ describe('Feature test for UserController', function () {
             ]);
             User::factory(5)->create();
 
-            $response = $this->actingAs($admin)->getJson(route('auth.user.index'))
+            $response = $this->actingAs($admin)->getJson(route('manager.users.index'))
                 ->assertStatus(401)
                 ->json();
 
