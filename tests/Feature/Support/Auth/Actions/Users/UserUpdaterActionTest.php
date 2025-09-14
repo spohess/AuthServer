@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Support\Manager\Actions\Users\UserUpdaterAction;
+use App\Support\Manager\Actions\User\UserUpdaterAction;
 use App\Support\Manager\Models\User;
 use Illuminate\Support\Facades\Hash;
 

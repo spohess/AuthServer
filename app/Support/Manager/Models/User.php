@@ -6,12 +6,14 @@ namespace App\Support\Manager\Models;
 
 use App\Support\Manager\Database\Factories\UserFactory;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 /**
+ * @mixin Builder
  * @property string $id
  * @property string $email
  * @property string $password

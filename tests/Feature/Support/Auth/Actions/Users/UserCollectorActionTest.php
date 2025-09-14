@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Support\Manager\Actions\Users\UserCollectorAction;
+use App\Support\Manager\Actions\User\UserCollectorAction;
 use App\Support\Manager\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;

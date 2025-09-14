@@ -7,10 +7,11 @@ namespace App\Support\Manager\Models;
 use App\Base\Enums\ProfileNameEnum;
 use App\Support\Manager\Database\Factories\ProfileFactory;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 /**
+ * @mixin Builder
  * @property string $id
  * @property ProfileNameEnum $name
  * @property string|null $description

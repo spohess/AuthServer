@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Support\Manager\Controllers;
 
 use App\Base\Abstracts\Controller;
-use App\Support\Manager\Actions\Users\UserFinderAction;
+use App\Support\Manager\Actions\User\UserFinderAction;
 use App\Support\Manager\Exceptions\InvalidUserException;
 use App\Support\Manager\Generators\UserTokenGenerator;
 use App\Support\Manager\Models\User;

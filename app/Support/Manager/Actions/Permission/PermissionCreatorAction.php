@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Manager\Actions\Users;
+namespace App\Support\Manager\Actions\Permission;
 
 use App\Base\Interfaces\Actions\CreatorActionInterface;
 use App\Support\Manager\Models\User;
@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
-class UserCreatorAction implements CreatorActionInterface
+class PermissionCreatorAction implements CreatorActionInterface
 {
     public function create(array $args): ?Model
     {

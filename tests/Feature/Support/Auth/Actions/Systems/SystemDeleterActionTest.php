@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Support\Manager\Actions\Users\UserDeleterAction;
+use App\Support\Manager\Actions\User\UserDeleterAction;
 use App\Support\Manager\Models\User;
 
 describe('Feature test for UserDeleterAction', function () {

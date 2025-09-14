@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Support\Manager\Actions\Systems\SystemUpdaterAction;
+use App\Support\Manager\Actions\System\SystemUpdaterAction;
 use App\Support\Manager\Models\System;
 use Illuminate\Support\Facades\Hash;
 

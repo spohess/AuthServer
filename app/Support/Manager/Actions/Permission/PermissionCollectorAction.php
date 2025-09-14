@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Manager\Actions\Users;
+namespace App\Support\Manager\Actions\Permission;
 
 use App\Base\Interfaces\Actions\CollectorActionInterface;
 use App\Support\Manager\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 
-class UserCollectorAction implements CollectorActionInterface
+class PermissionCollectorAction implements CollectorActionInterface
 {
     public function __construct(
         private User $model,

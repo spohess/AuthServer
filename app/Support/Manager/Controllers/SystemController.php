@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Support\Manager\Controllers;
 
 use App\Base\Abstracts\Controller;
-use App\Support\Manager\Actions\Systems\SystemCollectorAction;
-use App\Support\Manager\Actions\Systems\SystemCreatorAction;
-use App\Support\Manager\Actions\Systems\SystemDeleterAction;
-use App\Support\Manager\Actions\Systems\SystemUpdaterAction;
+use App\Support\Manager\Actions\System\SystemCollectorAction;
+use App\Support\Manager\Actions\System\SystemCreatorAction;
+use App\Support\Manager\Actions\System\SystemDeleterAction;
+use App\Support\Manager\Actions\System\SystemUpdaterAction;
 use App\Support\Manager\Models\System;
 use App\Support\Manager\Requests\System\SystemIndexRequest;
 use App\Support\Manager\Requests\System\SystemStoreRequest;

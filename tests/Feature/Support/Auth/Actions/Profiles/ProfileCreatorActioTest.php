@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use App\Base\Enums\ProfileNameEnum;
-use App\Support\Manager\Actions\Profiles\ProfileCreatorAction;
+use App\Support\Manager\Actions\Profile\ProfileCreatorAction;
 use App\Support\Manager\Models\Profile;
 
 beforeEach(function () {

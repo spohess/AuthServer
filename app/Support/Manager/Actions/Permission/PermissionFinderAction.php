@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Manager\Actions\Users;
+namespace App\Support\Manager\Actions\Permission;
 
 use App\Base\Interfaces\Actions\FinderActionInterface;
 use App\Support\Manager\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
-class UserFinderAction implements FinderActionInterface
+class PermissionFinderAction implements FinderActionInterface
 {
     public function __construct(
         private User $user,

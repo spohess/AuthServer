@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Support\Manager\Actions\Systems\SystemCollectorAction;
+use App\Support\Manager\Actions\System\SystemCollectorAction;
 use App\Support\Manager\Models\System;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;

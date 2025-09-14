@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Support\Manager\Actions\Users\UserFinderAction;
+use App\Support\Manager\Actions\User\UserFinderAction;
 use App\Support\Manager\Models\User;
 
 beforeEach(function () {
@@ -22,7 +22,7 @@ describe('Feature test for UserFinderAction', function () {
     });
 
     it('should receive null when pass invalid email', function () {
-        $user = User::factory()->create();
+        User::factory()->create();
 
         $userFound = $this->finder->find(['email' => 'invalid_invalid']);
 

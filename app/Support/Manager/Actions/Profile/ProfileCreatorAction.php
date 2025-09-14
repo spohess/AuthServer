@@ -2,22 +2,20 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Manager\Actions\Systems;
+namespace App\Support\Manager\Actions\Profile;
 
 use App\Base\Interfaces\Actions\CreatorActionInterface;
-use App\Support\Manager\Models\System;
+use App\Support\Manager\Models\Profile;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
-class SystemCreatorAction implements CreatorActionInterface
+class ProfileCreatorAction implements CreatorActionInterface
 {
     public function create(array $args): ?Model
     {
-        return System::create([
+        return Profile::create([
             'id' => Str::uuid()->toString(),
             ...$args,
-            'password' => bcrypt(Arr::get($args, 'password')),
         ]);
     }
 }

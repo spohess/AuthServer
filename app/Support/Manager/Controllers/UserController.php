@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Support\Manager\Controllers;
 
 use App\Base\Abstracts\Controller;
-use App\Support\Manager\Actions\Users\UserCollectorAction;
-use App\Support\Manager\Actions\Users\UserCreatorAction;
-use App\Support\Manager\Actions\Users\UserDeleterAction;
-use App\Support\Manager\Actions\Users\UserUpdaterAction;
+use App\Support\Manager\Actions\User\UserCollectorAction;
+use App\Support\Manager\Actions\User\UserCreatorAction;
+use App\Support\Manager\Actions\User\UserDeleterAction;
+use App\Support\Manager\Actions\User\UserUpdaterAction;
 use App\Support\Manager\Models\User;
 use App\Support\Manager\Requests\User\UserIndexRequest;
 use App\Support\Manager\Requests\User\UserStoreRequest;

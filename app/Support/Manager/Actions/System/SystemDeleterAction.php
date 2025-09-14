@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Manager\Actions\Systems;
+namespace App\Support\Manager\Actions\System;
 
 use App\Base\Interfaces\Actions\DeleterActionInterface;
 use App\Support\Manager\Models\User;

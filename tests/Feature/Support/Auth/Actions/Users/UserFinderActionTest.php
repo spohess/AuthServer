@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Support\Manager\Actions\Users\UserFinderAction;
+use App\Support\Manager\Actions\User\UserFinderAction;
 use App\Support\Manager\Models\User;
 
 beforeEach(function () {

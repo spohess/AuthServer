@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Support\Manager\Actions\Systems\SystemCreatorAction;
+use App\Support\Manager\Actions\System\SystemCreatorAction;
 use App\Support\Manager\Models\System;
 
 beforeEach(function () {

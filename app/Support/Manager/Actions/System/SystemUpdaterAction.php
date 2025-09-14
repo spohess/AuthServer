@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Manager\Actions\Users;
+namespace App\Support\Manager\Actions\System;
 
 use App\Base\Interfaces\Actions\UpdaterActionInterface;
 use App\Support\Manager\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
-class UserUpdaterAction implements UpdaterActionInterface
+class SystemUpdaterAction implements UpdaterActionInterface
 {
     /**
      * @param User $model
