@@ -9,8 +9,13 @@ use App\Support\Auth\Actions\Permission\PermissionCollectorAction;
 use App\Support\Auth\Actions\Permission\PermissionCreatorAction;
 use App\Support\Auth\Actions\Permission\PermissionDeleterAction;
 use App\Support\Auth\Actions\Permission\PermissionUpdaterAction;
+use App\Support\Auth\Models\Permission;
+use App\Support\Auth\Resources\PermissionResource;
 use App\Support\Manager\Requests\Permission\PermissionIndexRequest;
-use Illuminate\Http\Request;
+use App\Support\Manager\Requests\Permission\PermissionStoreRequest;
+use App\Support\Manager\Requests\Permission\PermissionUpdateRequest;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response;
 
 class PermissionController extends Controller
 {
@@ -21,13 +26,36 @@ class PermissionController extends Controller
         private PermissionDeleterAction $deleter,
     ) {}
 
-    public function index(PermissionIndexRequest $request) {}
+    public function index(PermissionIndexRequest $request): AnonymousResourceCollection
+    {
+        return PermissionResource::collection(
+            $this->collector->collect($request->validated()),
+        );
+    }
 
-    public function store(Request $request) {}
+    public function store(PermissionStoreRequest $request): PermissionResource
+    {
+        return new PermissionResource(
+            $this->creator->create($request->validated()),
+        );
+    }
 
-    public function show($id) {}
+    public function show(Permission $permission): PermissionResource
+    {
+        return new PermissionResource($permission);
+    }
 
-    public function update(Request $request, $id) {}
+    public function update(PermissionUpdateRequest $request, Permission $permission): PermissionResource
+    {
+        $this->updater->update($permission, $request->validated());
 
-    public function destroy($id) {}
+        return new PermissionResource($permission->refresh());
+    }
+
+    public function destroy(Permission $permission): Response
+    {
+        $this->deleter->delete($permission);
+
+        return response()->noContent();
+    }
 }

@@ -20,14 +20,14 @@ class PermissionFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => $this->faker->uuid(),
+            'id' => fake()->uuid(),
             'system_id' => System::factory(),
             'user_id' => User::factory(),
             'profile_id' => Profile::inRandomOrder()->first()->id,
             'select' => true,
-            'insert' => $this->faker->boolean(),
-            'update' => $this->faker->boolean(),
-            'delete' => $this->faker->boolean(),
+            'insert' => fake()->boolean(),
+            'update' => fake()->boolean(),
+            'delete' => fake()->boolean(),
         ];
     }
 }

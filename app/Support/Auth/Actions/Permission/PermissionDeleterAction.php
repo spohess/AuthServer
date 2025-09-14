@@ -15,8 +15,6 @@ class PermissionDeleterAction implements DeleterActionInterface
      */
     public function delete(Model $model): bool
     {
-        return $model->update([
-            'blocked_at' => now(),
-        ]);
+        return $model->delete();
     }
 }

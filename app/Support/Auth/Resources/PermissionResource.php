@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Support\Auth\Resources;
 
-use App\Support\Manager\Models\Permission;
+use App\Support\Auth\Models\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,8 +17,13 @@ class PermissionResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'description' => $this->description,
+            'system' => $this->system->name,
+            'user' => $this->user->email,
+            'profile' => $this->profile->name,
+            'select' => $this->select,
+            'insert' => $this->insert,
+            'update' => $this->update,
+            'delete' => $this->delete,
             'created_at' => $this->created_at->toDateTimeString(),
         ];
     }

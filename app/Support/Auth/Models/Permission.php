@@ -30,6 +30,10 @@ class Permission extends Model
     /** @use HasFactory<PermissionFactory> */
     use HasFactory;
 
+    protected $keyType = 'string';
+
+    public $incrementing = false;
+
     protected $fillable = [
         'id',
         'system_id',
