@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Support\Manager\Actions\System\SystemUpdaterAction;
-use App\Support\Manager\Models\System;
+use App\Support\Auth\Actions\System\SystemUpdaterAction;
+use App\Support\Auth\Models\System;
 use Illuminate\Support\Facades\Hash;
 
 beforeEach(function () {

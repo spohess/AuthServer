@@ -1,0 +1,5 @@
+GET /api/manager/permissions/bb40b787-ef92-4208-be8b-5f1724372fbd HTTP/1.1
+Host: localhost
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer 1|ru5847XzGb1iGvQ9M0VfzVUjvmMGFO5p4ztBZ3Nu2e0eee7b

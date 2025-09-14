@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace App\Support\Manager\Controllers;
 
 use App\Base\Abstracts\Controller;
-use App\Support\Manager\Actions\System\SystemCollectorAction;
-use App\Support\Manager\Actions\System\SystemCreatorAction;
-use App\Support\Manager\Actions\System\SystemDeleterAction;
-use App\Support\Manager\Actions\System\SystemUpdaterAction;
-use App\Support\Manager\Models\System;
+use App\Support\Auth\Resources\SystemResource;
+use App\Support\Auth\Actions\System\SystemCollectorAction;
+use App\Support\Auth\Actions\System\SystemCreatorAction;
+use App\Support\Auth\Actions\System\SystemDeleterAction;
+use App\Support\Auth\Actions\System\SystemUpdaterAction;
+use App\Support\Auth\Models\System;
 use App\Support\Manager\Requests\System\SystemIndexRequest;
 use App\Support\Manager\Requests\System\SystemStoreRequest;
 use App\Support\Manager\Requests\System\SystemUpdateRequest;
-use App\Support\Manager\Resources\SystemResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 

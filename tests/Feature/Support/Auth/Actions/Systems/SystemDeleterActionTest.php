@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Support\Manager\Actions\User\UserDeleterAction;
-use App\Support\Manager\Models\User;
+use App\Support\Auth\Actions\User\UserDeleterAction;
+use App\Support\Auth\Models\User;
 
 describe('Feature test for UserDeleterAction', function () {
     it('should block user adding date com blocked_at', function () {
