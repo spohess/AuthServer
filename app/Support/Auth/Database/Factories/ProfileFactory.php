@@ -19,7 +19,7 @@ class ProfileFactory extends Factory
     {
         return [
             'id' => fake()->uuid(),
-            'name' => fake()->randomElement(ProfileNameEnum::values()),
+            'name' => fake()->unique()->randomElement(ProfileNameEnum::values()),
             'description' => fake()->optional()->sentence(),
         ];
     }
