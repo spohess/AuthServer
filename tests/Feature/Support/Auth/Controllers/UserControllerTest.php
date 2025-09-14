@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-use App\Support\Auth\Controllers\UserController;
-use App\Support\Auth\Models\User;
-use App\Support\Auth\Requests\User\UserIndexRequest;
-use App\Support\Auth\Requests\User\UserStoreRequest;
-use App\Support\Auth\Requests\User\UserUpdateRequest;
-use App\Support\Auth\Resources\UserResource;
+use App\Support\Manager\Controllers\UserController;
+use App\Support\Manager\Models\User;
+use App\Support\Manager\Requests\User\UserIndexRequest;
+use App\Support\Manager\Requests\User\UserStoreRequest;
+use App\Support\Manager\Requests\User\UserUpdateRequest;
+use App\Support\Manager\Resources\UserResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 beforeEach(function () {

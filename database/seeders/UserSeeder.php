@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
-use App\Support\Auth\Actions\Users\UserCreatorAction;
+use App\Support\Manager\Actions\Users\UserCreatorAction;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder

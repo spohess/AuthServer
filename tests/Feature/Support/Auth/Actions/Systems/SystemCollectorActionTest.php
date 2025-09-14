@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Support\Auth\Actions\Systems\SystemCollectorAction;
-use App\Support\Auth\Models\System;
+use App\Support\Manager\Actions\Systems\SystemCollectorAction;
+use App\Support\Manager\Models\System;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 

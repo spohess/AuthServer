@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Support\Auth\Controllers\ProfileController;
-use App\Support\Auth\Models\Profile;
+use App\Support\Manager\Controllers\ProfileController;
+use App\Support\Manager\Models\Profile;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 describe('Feature test for ProfileController', function () {

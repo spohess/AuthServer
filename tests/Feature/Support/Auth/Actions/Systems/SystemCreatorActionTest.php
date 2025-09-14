@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Support\Auth\Actions\Systems\SystemCreatorAction;
-use App\Support\Auth\Models\System;
+use App\Support\Manager\Actions\Systems\SystemCreatorAction;
+use App\Support\Manager\Models\System;
 
 beforeEach(function () {
     $this->creator = app()->make(SystemCreatorAction::class);

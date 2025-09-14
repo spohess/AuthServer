@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Support\Auth\Actions\Users\UserFinderAction;
-use App\Support\Auth\Models\User;
+use App\Support\Manager\Actions\Users\UserFinderAction;
+use App\Support\Manager\Models\User;
 
 beforeEach(function () {
     $this->finder = app()->make(UserFinderAction::class);
