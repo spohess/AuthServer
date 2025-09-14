@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Support\Manager\Actions\User\UserCreatorAction;
-use App\Support\Manager\Models\User;
+use App\Support\Auth\Actions\User\UserCreatorAction;
+use App\Support\Auth\Models\User;
 
 beforeEach(function () {
     $this->creator = app()->make(UserCreatorAction::class);

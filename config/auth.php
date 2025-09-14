@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-use App\Support\Manager\Models\User;
+use App\Support\Auth\Models\User;
 
 return [
 

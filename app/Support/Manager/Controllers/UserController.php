@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace App\Support\Manager\Controllers;
 
 use App\Base\Abstracts\Controller;
-use App\Support\Manager\Actions\User\UserCollectorAction;
-use App\Support\Manager\Actions\User\UserCreatorAction;
-use App\Support\Manager\Actions\User\UserDeleterAction;
-use App\Support\Manager\Actions\User\UserUpdaterAction;
-use App\Support\Manager\Models\User;
+use App\Support\Auth\Resources\UserResource;
+use App\Support\Auth\Actions\User\UserCollectorAction;
+use App\Support\Auth\Actions\User\UserCreatorAction;
+use App\Support\Auth\Actions\User\UserDeleterAction;
+use App\Support\Auth\Actions\User\UserUpdaterAction;
+use App\Support\Auth\Models\User;
 use App\Support\Manager\Requests\User\UserIndexRequest;
 use App\Support\Manager\Requests\User\UserStoreRequest;
 use App\Support\Manager\Requests\User\UserUpdateRequest;
-use App\Support\Manager\Resources\UserResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 
