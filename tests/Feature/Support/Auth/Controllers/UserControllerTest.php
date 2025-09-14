@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-use App\Support\Auth\Controllers\UserController;
-use App\Support\Auth\Models\User;
-use App\Support\Auth\Requests\User\UserIndexRequest;
-use App\Support\Auth\Requests\User\UserStoreRequest;
-use App\Support\Auth\Requests\User\UserUpdateRequest;
-use App\Support\Auth\Resources\UserResource;
+use App\Support\Manager\Controllers\UserController;
+use App\Support\Manager\Models\User;
+use App\Support\Manager\Requests\User\UserIndexRequest;
+use App\Support\Manager\Requests\User\UserStoreRequest;
+use App\Support\Manager\Requests\User\UserUpdateRequest;
+use App\Support\Manager\Resources\UserResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 beforeEach(function () {
@@ -117,6 +117,21 @@ describe('Feature test for UserController', function () {
                 ]);
             $this->assertDatabaseHas(User::class, $data);
         });
+
+        it('should create a user by api', function () {
+            $admin = User::factory()->create([
+                'blocked_at' => null,
+                'root' => true,
+            ]);
+
+            $password = str_shuffle(fake()->numerify('####') . fake()->word() . strtoupper(fake()->word()) . '!@#$');
+            $this->actingAs($admin)->postJson(route('manager.users.store'), [
+                'email' => fake()->safeEmail(),
+                'password' => $password,
+                'password_confirmation' => $password,
+                'root' => false,
+            ])->assertStatus(201)->json();
+        });
     });
 
     describe('show', function () {
@@ -158,6 +173,22 @@ describe('Feature test for UserController', function () {
             $this->assertDatabaseHas(User::class, [
                 'email' => $newEmail,
             ]);
+        });
+
+        it('should update user data by api', function () {
+            $admin = User::factory()->create([
+                'blocked_at' => null,
+                'root' => true,
+            ]);
+            $user = User::factory()->create();
+
+            $password = str_shuffle(fake()->numerify('####') . fake()->word() . strtoupper(fake()->word()) . '!@#$');
+            $this->actingAs($admin)->putJson(route('manager.users.update', ['user' => $user]), [
+                'email' => fake()->safeEmail(),
+                'password' => $password,
+                'password_confirmation' => $password,
+                'root' => false,
+            ])->assertOk()->json();
         });
     });
 

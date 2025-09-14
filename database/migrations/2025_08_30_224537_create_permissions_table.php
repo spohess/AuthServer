@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use App\Support\Auth\Models\Profile;
-use App\Support\Auth\Models\System;
-use App\Support\Auth\Models\User;
+use App\Support\Manager\Models\Profile;
+use App\Support\Manager\Models\System;
+use App\Support\Manager\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

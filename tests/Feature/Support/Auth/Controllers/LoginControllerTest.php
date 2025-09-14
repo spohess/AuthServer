@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use App\Support\Auth\Controllers\LoginController;
-use App\Support\Auth\Models\User;
-use App\Support\Auth\Requests\LoginRequest;
+use App\Support\Manager\Controllers\LoginController;
+use App\Support\Manager\Models\User;
+use App\Support\Manager\Requests\LoginRequest;
 use Illuminate\Http\JsonResponse;
 
 describe('Feature test for LoginController', function () {
