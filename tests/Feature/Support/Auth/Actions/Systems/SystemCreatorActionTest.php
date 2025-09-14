@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Support\Auth\Actions\Systems\SystemCreatorAction;
-use App\Support\Auth\Models\System;
+use App\Support\Manager\Actions\System\SystemCreatorAction;
+use App\Support\Manager\Models\System;
 
 beforeEach(function () {
     $this->creator = app()->make(SystemCreatorAction::class);
@@ -19,6 +19,10 @@ describe('Feature test for SystemCreatorAction', function () {
 
         expect($user)->toBeInstanceOf(System::class);
         $this->assertDatabaseCount(System::class, 1);
-        $this->assertDatabaseHas(System::class, $data);
+        $this->assertDatabaseHas(System::class, [
+            'id' => $data['id'],
+            'name' => $data['name'],
+            'url' => $data['url'],
+        ]);
     });
 });
