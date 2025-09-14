@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Support\Manager\Controllers;
 
 use App\Base\Abstracts\Controller;
