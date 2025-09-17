@@ -13,6 +13,7 @@ use App\Support\Auth\Requests\LoginRequest;
 use App\Support\Auth\Validators\UserPasswordValidator;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
+use Throwable;
 
 class LoginController extends Controller
 {
@@ -22,6 +23,9 @@ class LoginController extends Controller
         private UserTokenGenerator $generator,
     ) {}
 
+    /**
+     * @throws Throwable
+     */
     public function __invoke(LoginRequest $request): JsonResponse
     {
         /**

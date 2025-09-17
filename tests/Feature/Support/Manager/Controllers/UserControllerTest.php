@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Support\Auth\Models\User;
 use App\Support\Auth\Resources\UserResource;
 use App\Support\Manager\Controllers\UserController;
-use App\Support\Auth\Models\User;
 use App\Support\Manager\Requests\User\UserIndexRequest;
 use App\Support\Manager\Requests\User\UserStoreRequest;
 use App\Support\Manager\Requests\User\UserUpdateRequest;

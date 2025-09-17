@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace App\Support\Manager\Controllers;
 
 use App\Base\Abstracts\Controller;
-use App\Support\Auth\Resources\UserResource;
 use App\Support\Auth\Actions\User\UserCollectorAction;
 use App\Support\Auth\Actions\User\UserCreatorAction;
 use App\Support\Auth\Actions\User\UserDeleterAction;
 use App\Support\Auth\Actions\User\UserUpdaterAction;
 use App\Support\Auth\Models\User;
+use App\Support\Auth\Resources\UserResource;
 use App\Support\Manager\Requests\User\UserIndexRequest;
 use App\Support\Manager\Requests\User\UserStoreRequest;
 use App\Support\Manager\Requests\User\UserUpdateRequest;
