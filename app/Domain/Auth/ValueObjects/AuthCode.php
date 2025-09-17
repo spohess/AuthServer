@@ -20,19 +20,13 @@ class AuthCode implements ValueObjectInterface
      */
     public function __construct(
         public readonly string $userId,
-        public readonly ?Carbon $expiresAt = null,
+        public readonly ?Carbon $expiresAt = new Carbon(),
         public readonly ?int $attempts = 0,
         public readonly ?int $codeLength = 6,
         public readonly ?int $codeLifetime = 30,
         public readonly ?int $maxAttempts = 5,
     ) {
-        $this->generateExpirationDate();
         $this->code = $this->generateCode();
-    }
-
-    private function generateExpirationDate()
-    {
-        $this->expiresAt ??= now()->addMinutes($this->codeLifetime);
     }
 
     /**
