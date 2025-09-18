@@ -1,1 +1,1 @@
-# Auth-Server
+# AuthTrust Server

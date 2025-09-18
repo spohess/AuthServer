@@ -9,9 +9,13 @@ use App\Support\Auth\Exceptions\InvalidUserException;
 use App\Support\Auth\Models\User;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
+use Throwable;
 
 class UserPasswordValidator implements ValidatorInterface
 {
+    /**
+     * @throws Throwable
+     */
     public function validate($subject): void
     {
         /**

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use App\Support\Auth\Resources\SystemResource;
-use App\Support\Manager\Controllers\SystemController;
 use App\Support\Auth\Models\System;
 use App\Support\Auth\Models\User;
+use App\Support\Auth\Resources\SystemResource;
+use App\Support\Manager\Controllers\SystemController;
 use App\Support\Manager\Requests\System\SystemIndexRequest;
 use App\Support\Manager\Requests\System\SystemStoreRequest;
 use App\Support\Manager\Requests\System\SystemUpdateRequest;

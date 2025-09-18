@@ -1,8 +1,7 @@
 {
-  "$schema": "https://getcomposer.org/schema.json",
   "name": "laravel/laravel",
   "type": "project",
-  "description": "The skeleton application for the Laravel framework.",
+  "description": "Central authentication server for AuthTrust. Manages user identities, issues and validates tokens, and provides a secure foundation for Single Sign-On (SSO) across multiple applications.",
   "keywords": [
     "laravel",
     "framework"
