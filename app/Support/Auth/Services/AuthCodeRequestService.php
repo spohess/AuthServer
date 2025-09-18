@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Support\Auth\Services;
 
-use App\Base\Exceptions\CodeGeneretorException;
+use App\Base\Exceptions\CodeGeneratorException;
 use App\Base\Exceptions\InvalidAttemptException;
 use App\Base\Interfaces\Services\ExecutableInterface;
 use App\Base\Interfaces\Services\ServiceInterface;
@@ -27,7 +27,7 @@ class AuthCodeRequestService implements ServiceInterface
 
     /**
      * @throws InvalidAttemptException
-     * @throws CodeGeneretorException
+     * @throws CodeGeneratorException
      */
     public function execute(ExecutableInterface $executable): void
     {
@@ -40,7 +40,7 @@ class AuthCodeRequestService implements ServiceInterface
 
     /**
      * @throws InvalidAttemptException
-     * @throws CodeGeneretorException
+     * @throws CodeGeneratorException
      */
     private function getAuthCodeModel(User $user): AuthCodeModel
     {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Auth\ValueObjects;
 
-use App\Base\Exceptions\CodeGeneretorException;
+use App\Base\Exceptions\CodeGeneratorException;
 use App\Base\Exceptions\InvalidAttemptException;
 use App\Base\Interfaces\ValueObjectInterface;
 use Carbon\Carbon;
@@ -16,7 +16,7 @@ class AuthCode implements ValueObjectInterface, Arrayable
     public readonly int $code;
 
     /**
-     * @throws CodeGeneretorException
+     * @throws CodeGeneratorException
      * @throws InvalidAttemptException
      */
     public function __construct(
@@ -33,7 +33,7 @@ class AuthCode implements ValueObjectInterface, Arrayable
     }
 
     /**
-     * @throws CodeGeneretorException
+     * @throws CodeGeneratorException
      * @throws InvalidAttemptException
      */
     private function generateCode(): int
@@ -46,7 +46,7 @@ class AuthCode implements ValueObjectInterface, Arrayable
         try {
             return random_int($min, $max);
         } catch (RandomException) {
-            throw new CodeGeneretorException();
+            throw new CodeGeneratorException();
         }
     }
 

@@ -6,7 +6,7 @@ namespace App\Base\Exceptions;
 
 use Exception;
 
-class CodeGeneretorException extends Exception
+class CodeGeneratorException extends Exception
 {
     protected $code = 500;
 
