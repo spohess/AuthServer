@@ -6,6 +6,7 @@ namespace App\Support\Auth\Jobs;
 
 use App\Support\Auth\Models\AuthCode;
 use App\Support\Auth\Models\User;
+use App\Support\Auth\Notifications\AuthCodeNotification;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -24,5 +25,8 @@ class SendAuthCodeJob implements ShouldQueue
         public readonly AuthCode $authCode,
     ) {}
 
-    public function handle(): void {}
+    public function handle(): void
+    {
+        $this->user->notify(new AuthCodeNotification($this->authCode));
+    }
 }
