@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Support\Auth\Jobs;
 
+use App\Support\Auth\Models\AuthCode;
 use App\Support\Auth\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -20,6 +21,7 @@ class SendAuthCodeJob implements ShouldQueue
 
     public function __construct(
         public readonly User $user,
+        public readonly AuthCode $authCode,
     ) {}
 
     public function handle(): void {}

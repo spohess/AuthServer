@@ -8,9 +8,10 @@ use App\Base\Exceptions\CodeGeneretorException;
 use App\Base\Exceptions\InvalidAttemptException;
 use App\Base\Interfaces\ValueObjectInterface;
 use Carbon\Carbon;
+use Illuminate\Contracts\Support\Arrayable;
 use Random\RandomException;
 
-class AuthCode implements ValueObjectInterface
+class AuthCode implements ValueObjectInterface, Arrayable
 {
     public readonly int $code;
 
@@ -20,13 +21,15 @@ class AuthCode implements ValueObjectInterface
      */
     public function __construct(
         public readonly string $userId,
-        public readonly ?Carbon $expiresAt = new Carbon(),
-        public readonly ?int $attempts = 0,
+        private ?Carbon $expiresAt = null,
+        private ?int $attempts = null,
         public readonly ?int $codeLength = 6,
         public readonly ?int $codeLifetime = 30,
         public readonly ?int $maxAttempts = 5,
     ) {
         $this->code = $this->generateCode();
+        $this->expiresAt = $this->expiresAt ?? Carbon::now()->addMinutes($this->codeLifetime);
+        $this->attempts = $this->attempts ?? 0;
     }
 
     /**
@@ -61,5 +64,15 @@ class AuthCode implements ValueObjectInterface
         }
 
         throw new InvalidAttemptException();
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'user_id' => $this->userId,
+            'code' => $this->code,
+            'expires_at' => $this->expiresAt,
+            'attempts' => $this->attempts,
+        ];
     }
 }

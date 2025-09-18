@@ -7,12 +7,12 @@ namespace App\Support\Auth\Controllers;
 use App\Base\Abstracts\Controller;
 use App\Support\Auth\Actions\User\UserFinderAction;
 use App\Support\Auth\Exceptions\InvalidUserException;
-use App\Support\Auth\Generators\UserTokenGenerator;
+use App\Support\Auth\Executables\AuthCodeRequestExecutable;
 use App\Support\Auth\Models\User;
 use App\Support\Auth\Requests\LoginRequest;
+use App\Support\Auth\Services\AuthCodeRequestService;
 use App\Support\Auth\Validators\UserPasswordValidator;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Auth;
 use Throwable;
 
 class LoginController extends Controller
@@ -20,7 +20,7 @@ class LoginController extends Controller
     public function __construct(
         private UserFinderAction $finder,
         private UserPasswordValidator $validator,
-        private UserTokenGenerator $generator,
+        private AuthCodeRequestService $requestService,
     ) {}
 
     /**
@@ -44,12 +44,14 @@ class LoginController extends Controller
                 'message' => $e->getMessage(),
             ], 422);
         }
-        Auth::login($user);
-        $token = $this->generator->generate(['user' => $user]);
+
+        $executable = app()->make(AuthCodeRequestExecutable::class, [
+            'user' => $user,
+        ]);
+        $this->requestService->execute($executable);
 
         return response()->json([
-            'message' => 'Login successful',
-            'token' => $token,
-        ], 201);
+            'message' => 'The code has been sent to your email.',
+        ]);
     }
 }
