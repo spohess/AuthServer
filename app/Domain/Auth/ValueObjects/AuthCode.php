@@ -28,7 +28,7 @@ class AuthCode implements ValueObjectInterface, Arrayable
         public readonly ?int $maxAttempts = 5,
     ) {
         $this->expiresAt ??= Carbon::now()->addMinutes($this->codeLifetime);
-        $this->attempts ??= 0;
+        $this->attempts = is_null($this->attempts) ? 1 : $this->attempts + 1;
         $this->code = $this->generateCode();
     }
 
@@ -55,11 +55,14 @@ class AuthCode implements ValueObjectInterface, Arrayable
      */
     private function canGenerateCode(): void
     {
-        if ($this->attempts < $this->maxAttempts) {
+        if ($this->attempts <= $this->maxAttempts) {
+            $this->expiresAt = Carbon::now()->addMinutes($this->codeLifetime);
             return;
         }
 
         if ($this->expiresAt->isPast()) {
+            $this->expiresAt = Carbon::now()->addMinutes($this->codeLifetime);
+            $this->attempts = 1;
             return;
         }
 

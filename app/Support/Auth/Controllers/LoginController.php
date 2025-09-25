@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Support\Auth\Controllers;
 
 use App\Base\Abstracts\Controller;
+use App\Base\Exceptions\InvalidAttemptException;
 use App\Support\Auth\Actions\User\UserFinderAction;
 use App\Support\Auth\Exceptions\InvalidUserException;
 use App\Support\Auth\Executables\AuthCodeRequestExecutable;
@@ -48,7 +49,13 @@ class LoginController extends Controller
         $executable = app()->make(AuthCodeRequestExecutable::class, [
             'user' => $user,
         ]);
-        $this->requestService->execute($executable);
+        try {
+            $this->requestService->execute($executable);
+        } catch (InvalidAttemptException $e) {
+            return response()->json([
+                'message' => $e->getMessage(),
+            ], $e->getCode());
+        }
 
         return response()->json([
             'message' => 'The code has been sent to your email.',

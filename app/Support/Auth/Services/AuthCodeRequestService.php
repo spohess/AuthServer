@@ -48,6 +48,7 @@ class AuthCodeRequestService implements ServiceInterface
         $authCodeModel = $this->finderAction->find([
             'user_id' => $user->id,
         ]);
+
         $authCode = new AuthCode(
             $user->id,
             $authCodeModel?->expires_at,
