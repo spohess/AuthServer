@@ -19,6 +19,7 @@ return new class extends Migration {
                 ->comment('Unique identifier for each auth code');
 
             $table->string('email')
+                ->index()
                 ->comment('Email address');
 
             $table->integer('code')
