@@ -6,7 +6,7 @@ namespace App\Support\Auth\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class CodeRequestRequest extends FormRequest
 {
     public function rules(): array
     {
