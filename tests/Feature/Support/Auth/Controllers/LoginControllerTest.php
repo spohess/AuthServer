@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Support\Auth\Controllers\LoginController;
+use App\Support\Auth\Controllers\Code\LoginController;
 use App\Support\Auth\Models\User;
 use App\Support\Auth\Requests\LoginRequest;
 use Illuminate\Http\JsonResponse;
@@ -27,7 +27,7 @@ describe('Feature test for LoginController', function () {
         $content = json_decode($response->content(), true);
         expect($response)
             ->toBeInstanceOf(JsonResponse::class)
-            ->and($content)->toHaveKeys(['message', 'token']);
+            ->and($content)->toBe(['message' => 'The code has been sent to your email.']);
     });
 
     it('should pass correct info endpoint and receive response with token', function () {
@@ -42,8 +42,8 @@ describe('Feature test for LoginController', function () {
             'email' => $email,
             'password' => $password,
         ]))->assertStatus(
-            201,
-        )->assertJsonStructure(['message', 'token']);
+            200,
+        )->assertJsonStructure(['message']);
     });
 
     it('should pass incorrect info to controller and receive response for invalid user', function () {

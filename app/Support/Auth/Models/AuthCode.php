@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @mixin Builder
  * @property string $id
- * @property string $user_id
+ * @property string $email
  * @property int $code
  * @property Carbon $expires_at
  * @property int $attempts
@@ -31,7 +31,7 @@ class AuthCode extends Model
 
     protected $fillable = [
         'id',
-        'user_id',
+        'email',
         'code',
         'expires_at',
         'attempts',

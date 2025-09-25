@@ -20,7 +20,7 @@ class AuthCode implements ValueObjectInterface, Arrayable
      * @throws InvalidAttemptException
      */
     public function __construct(
-        public readonly string $userId,
+        public readonly string $email,
         private ?Carbon $expiresAt = null,
         private ?int $attempts = null,
         public readonly ?int $codeLength = 6,
@@ -28,7 +28,7 @@ class AuthCode implements ValueObjectInterface, Arrayable
         public readonly ?int $maxAttempts = 5,
     ) {
         $this->expiresAt ??= Carbon::now()->addMinutes($this->codeLifetime);
-        $this->attempts ??= 0;
+        $this->attempts = is_null($this->attempts) ? 1 : $this->attempts + 1;
         $this->code = $this->generateCode();
     }
 
@@ -55,11 +55,14 @@ class AuthCode implements ValueObjectInterface, Arrayable
      */
     private function canGenerateCode(): void
     {
-        if ($this->attempts < $this->maxAttempts) {
+        if ($this->attempts <= $this->maxAttempts) {
+            $this->expiresAt = Carbon::now()->addMinutes($this->codeLifetime);
             return;
         }
 
         if ($this->expiresAt->isPast()) {
+            $this->expiresAt = Carbon::now()->addMinutes($this->codeLifetime);
+            $this->attempts = 1;
             return;
         }
 
@@ -69,7 +72,7 @@ class AuthCode implements ValueObjectInterface, Arrayable
     public function toArray(): array
     {
         return [
-            'user_id' => $this->userId,
+            'email' => $this->email,
             'code' => $this->code,
             'expires_at' => $this->expiresAt,
             'attempts' => $this->attempts,

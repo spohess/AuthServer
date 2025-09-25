@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Auth\Controllers;
+namespace App\Support\Auth\Controllers\Code;
 
 use App\Base\Abstracts\Controller;
+use App\Base\Exceptions\InvalidAttemptException;
 use App\Support\Auth\Actions\User\UserFinderAction;
 use App\Support\Auth\Exceptions\InvalidUserException;
 use App\Support\Auth\Executables\AuthCodeRequestExecutable;
@@ -13,7 +14,6 @@ use App\Support\Auth\Requests\LoginRequest;
 use App\Support\Auth\Services\AuthCodeRequestService;
 use App\Support\Auth\Validators\UserPasswordValidator;
 use Illuminate\Http\JsonResponse;
-use Throwable;
 
 class LoginController extends Controller
 {
@@ -23,9 +23,6 @@ class LoginController extends Controller
         private AuthCodeRequestService $requestService,
     ) {}
 
-    /**
-     * @throws Throwable
-     */
     public function __invoke(LoginRequest $request): JsonResponse
     {
         /**
@@ -48,7 +45,13 @@ class LoginController extends Controller
         $executable = app()->make(AuthCodeRequestExecutable::class, [
             'user' => $user,
         ]);
-        $this->requestService->execute($executable);
+        try {
+            $this->requestService->execute($executable);
+        } catch (InvalidAttemptException $e) {
+            return response()->json([
+                'message' => $e->getMessage(),
+            ], $e->getCode());
+        }
 
         return response()->json([
             'message' => 'The code has been sent to your email.',

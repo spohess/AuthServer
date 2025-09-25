@@ -46,10 +46,11 @@ class AuthCodeRequestService implements ServiceInterface
     {
         /** @var AuthCodeModel $authCodeModel */
         $authCodeModel = $this->finderAction->find([
-            'user_id' => $user->id,
+            'email' => $user->email,
         ]);
+
         $authCode = new AuthCode(
-            $user->id,
+            $user->email,
             $authCodeModel?->expires_at,
             $authCodeModel?->attempts,
         );

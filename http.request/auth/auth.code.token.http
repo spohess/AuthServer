@@ -1,9 +1,9 @@
-POST /api/login HTTP/1.1
+POST /api/auth/code/token HTTP/1.1
 Host: localhost
 Accept: application/json
 Content-Type: application/json
 
 {
     "email": "root@authserver.local",
-    "password": "4O0e0uRT$!AaE@#3MqP"
+    "code": 889210
 }
