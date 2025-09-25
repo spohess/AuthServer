@@ -13,9 +13,6 @@ use Throwable;
 
 class UserPasswordValidator implements ValidatorInterface
 {
-    /**
-     * @throws Throwable
-     */
     public function validate($subject): void
     {
         /**

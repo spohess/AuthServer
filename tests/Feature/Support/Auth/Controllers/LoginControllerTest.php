@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use App\Support\Auth\Controllers\CodeRequestController;
+use App\Support\Auth\Controllers\Code\LoginController;
 use App\Support\Auth\Models\User;
-use App\Support\Auth\Requests\CodeRequestRequest;
+use App\Support\Auth\Requests\LoginRequest;
 use Illuminate\Http\JsonResponse;
 
 describe('Feature test for LoginController', function () {
@@ -16,8 +16,8 @@ describe('Feature test for LoginController', function () {
             'password' => bcrypt($password),
         ]);
 
-        $controller = app()->make(CodeRequestController::class);
-        $request = new CodeRequestRequest([
+        $controller = app()->make(LoginController::class);
+        $request = new LoginRequest([
             'email' => $email,
             'password' => $password,
         ]);
@@ -53,8 +53,8 @@ describe('Feature test for LoginController', function () {
             'password' => bcrypt(fake()->password(12)),
         ]);
 
-        $controller = app()->make(CodeRequestController::class);
-        $request = new CodeRequestRequest([
+        $controller = app()->make(LoginController::class);
+        $request = new LoginRequest([
             'email' => $email,
             'password' => 'INVALID_INVALID',
         ]);

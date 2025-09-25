@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Auth\Controllers;
+namespace App\Support\Auth\Controllers\Code;
 
 use App\Base\Abstracts\Controller;
 use App\Base\Exceptions\InvalidAttemptException;
@@ -10,13 +10,12 @@ use App\Support\Auth\Actions\User\UserFinderAction;
 use App\Support\Auth\Exceptions\InvalidUserException;
 use App\Support\Auth\Executables\AuthCodeRequestExecutable;
 use App\Support\Auth\Models\User;
-use App\Support\Auth\Requests\CodeRequestRequest;
+use App\Support\Auth\Requests\LoginRequest;
 use App\Support\Auth\Services\AuthCodeRequestService;
 use App\Support\Auth\Validators\UserPasswordValidator;
 use Illuminate\Http\JsonResponse;
-use Throwable;
 
-class CodeRequestController extends Controller
+class LoginController extends Controller
 {
     public function __construct(
         private UserFinderAction $finder,
@@ -24,10 +23,7 @@ class CodeRequestController extends Controller
         private AuthCodeRequestService $requestService,
     ) {}
 
-    /**
-     * @throws Throwable
-     */
-    public function __invoke(CodeRequestRequest $request): JsonResponse
+    public function __invoke(LoginRequest $request): JsonResponse
     {
         /**
          * @var User $user
