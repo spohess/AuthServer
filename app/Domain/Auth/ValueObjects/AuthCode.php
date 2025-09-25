@@ -20,7 +20,7 @@ class AuthCode implements ValueObjectInterface, Arrayable
      * @throws InvalidAttemptException
      */
     public function __construct(
-        public readonly string $userId,
+        public readonly string $email,
         private ?Carbon $expiresAt = null,
         private ?int $attempts = null,
         public readonly ?int $codeLength = 6,
@@ -72,7 +72,7 @@ class AuthCode implements ValueObjectInterface, Arrayable
     public function toArray(): array
     {
         return [
-            'user_id' => $this->userId,
+            'email' => $this->email,
             'code' => $this->code,
             'expires_at' => $this->expiresAt,
             'attempts' => $this->attempts,

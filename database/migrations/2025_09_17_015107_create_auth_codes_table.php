@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Support\Auth\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,8 +18,8 @@ return new class extends Migration {
                 ->primary()
                 ->comment('Unique identifier for each auth code');
 
-            $table->foreignIdFor(User::class)
-                ->constrained();
+            $table->string('email')
+                ->comment('Email address');
 
             $table->integer('code')
                 ->comment('Auth code');

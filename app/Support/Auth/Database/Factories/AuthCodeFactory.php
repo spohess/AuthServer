@@ -17,7 +17,11 @@ class AuthCodeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id' => fake()->uuid(),
+            'email' => fake()->unique()->safeEmail(),
+            'code' => fake()->unique()->randomNumber(6),
+            'expires_at' => fake()->dateTimeBetween('+1 hour', '+3 hour'),
+            'attempts' => fake()->numberBetween(1, 5),
         ];
     }
 }
