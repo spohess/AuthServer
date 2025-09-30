@@ -38,7 +38,7 @@ describe('Feature test for LoginController', function () {
             'password' => bcrypt($password),
         ]);
 
-        $this->postJson(route('login', [
+        $this->postJson(route('auth.code.login', [
             'email' => $email,
             'password' => $password,
         ]))->assertStatus(
@@ -74,7 +74,7 @@ describe('Feature test for LoginController', function () {
             'password' => bcrypt(fake()->password(12)),
         ]);
 
-        $this->postJson(route('login', [
+        $this->postJson(route('auth.code.login', [
             'email' => $email,
             'password' => 'INVALID_INVALID',
         ]))->assertStatus(
