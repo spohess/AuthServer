@@ -2,22 +2,23 @@
 
 namespace App\Support\Manager\Models;
 
-use App\Support\Manager\Database\Factories\SytemParameterFactory;
+use App\Support\Manager\Database\Factories\SystemParameterFactory;
+use App\Support\Manager\Enums\SystemKeyEnum;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property string $id
- * @property string $key
+ * @property SystemKeyEnum $key
  * @property string $value
  * @property bool $active
  * @property Carbon $created_at
  * @property Carbon $updated_at
  */
-class SytemParameter extends Model
+class SystemParameter extends Model
 {
-    /** @use HasFactory<SytemParameterFactory> */
+    /** @use HasFactory<SystemParameterFactory> */
     use HasFactory;
 
     public $incrementing = false;
@@ -31,8 +32,13 @@ class SytemParameter extends Model
         'active',
     ];
 
-    protected static function newFactory(): SytemParameterFactory
+    protected $casts = [
+        'key' => SystemKeyEnum::class,
+        'active' => 'boolean',
+    ];
+
+    protected static function newFactory(): SystemParameterFactory
     {
-        return SytemParameterFactory::new();
+        return SystemParameterFactory::new();
     }
 }

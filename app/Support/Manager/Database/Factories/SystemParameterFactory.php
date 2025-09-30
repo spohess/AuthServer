@@ -2,15 +2,15 @@
 
 namespace App\Support\Manager\Database\Factories;
 
-use App\Support\Manager\Models\SytemParameter;
+use App\Support\Manager\Models\SystemParameter;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<SytemParameter>
+ * @extends Factory<SystemParameter>
  */
-class SytemParameterFactory extends Factory
+class SystemParameterFactory extends Factory
 {
-    protected $model = SytemParameter::class;
+    protected $model = SystemParameter::class;
 
     public function definition(): array
     {

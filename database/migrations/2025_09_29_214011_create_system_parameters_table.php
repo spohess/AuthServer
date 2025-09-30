@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('sytem_parameters', function (Blueprint $table) {
+        Schema::create('system_parameters', function (Blueprint $table) {
             $table->comment('Table to store system parameters');
 
             $table->timestamps();
@@ -30,6 +30,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('sytem_parameters');
+        Schema::dropIfExists('system_parameters');
     }
 };
