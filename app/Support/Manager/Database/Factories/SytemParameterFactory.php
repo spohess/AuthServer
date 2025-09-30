@@ -15,7 +15,10 @@ class SytemParameterFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id' => fake()->uuid(),
+            'key' => strtolower($this->faker->word()),
+            'value' => strtolower($this->faker->word()),
+            'active' => fake()->boolean(80),
         ];
     }
 }
